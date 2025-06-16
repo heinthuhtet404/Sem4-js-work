@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>parseFloat() parses a string and returns the first number:</p>
+    <p id="demo"></p>
+    <script>
+        document.getElementById("demo").innerHTML = 
+            parseFloat("40.00") + "<br>" + // Returns 40
+            parseFloat("   40   ") + "<br>" + // Returns 40
+            parseFloat("40 years") + "<br>" + // Returns 40
+            parseFloat("40H") + "<br>" + // Returns 40
+            parseFloat("H40"); // Returns NaN
+    </script>
+</body>
+
+</html>
