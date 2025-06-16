@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>y = 5, calculate x = y++;</p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+
+    <p><strong>Note:</strong>y is incremented after it is assigned to x (post-incremented)</p>
+    <script>
+        let y = 5;
+        let x = y++;
+
+        document.getElementById("demo1").innerHtml = "Value of y: " + y;
+        document.getElementById("demo2").innerHtml = "Value of x: " + x;
+    </script>
+    <h1>Javascript operators</h1>
+    <h2>The -- Operator</h2>
+
+    <p>y = 5; calculate x = y--;</p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+
+    <p><strong>Note:</strong>y is decremented after it is assigned to x (post-decremented)</p>
+
+
+
+    <script>
+        let a = 5;
+        let b = a--;
+        document.getElementById("demo3").innerHTML = "Value of a: " + b;
+        document.getElementById("demo4").innerHTML = "Value of b: " + a;
+    </script>
+</body>
+
+</html>
