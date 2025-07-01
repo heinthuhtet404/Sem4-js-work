@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #b6adad;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 20px 0;
+            width: 100%;
+        }
+
+        input:focus {
+            outline: none;
+
+        }
+
+        #log {
+            background-color: green;
+            font-size: 15px;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: none;
+            transition: 0.2s ease-in;
+        }
+
+        #log:hover {
+            opacity: 0.9;
+        }
+
+        label {
+            color: green;
+        }
+
+        .error {
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login Form</h2>
+        <form name="validForm" action="page1.html" onsubmit="return validDateForm()" method="get">
+
+            <label for="name">Enter Name</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="Email">Enter Email</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="phone">Enter Phone</label>
+            <input type="tel" id="phone" name="phone" required><br>
+            <label for="password">Enter Password</label>
+            <input type="password" id="password" name="password" required><br>
+            <input type="submit" value="Login" id="log">
+            <div class="error" id="errorMessage"></div>
+        </form>
+        <script type="text/javascript">
+
+            function validDateForm() {
+
+                var name = document.forms["validForm"]["name"].value;
+                var email = document.forms["validForm"]["email"].value;
+                var phone = document.forms["validForm"]["phone"].value;
+                var password = document.forms["validForm"]["password"].value;
+
+                var nameP = /^[A-Za-z\s]*$/;
+                var emailP = /[A-Za-z0-9]\w{2,}@[A-Za-z0-9]{3,}\.[A-Za-z]{3}/;
+                var phoneP = /^\d{11}$/;
+                var passwordP = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+
+
+                if (!nameP.test(name)) {
+                    document.getElementById("errorMessage").textContent = "Please enter a valid name (letter and space only)";
+                    return false;
+                }
+                if (!emailP.test(email)) {
+                    document.getElementById("errorMessage").textContent = "Please Enter a valid Email";
+                    return false;
+                }
+                if (!phoneP.test(phone)) {
+                    document.getElementById("errorMessage").textContent = "Please enter a valid 10 digits phone number";
+                    return false;
+                }
+
+                if (!passwordP.test(password)) {
+                    document.getElementById("errorMessage").textContent = "Please enter a valid password(at least 8 characters, one uppercase letter,one lower letter ,and one digits)";
+                    return false;
+                }
+
+                alert("Form Submitted Successfully");
+                return true;
+            }
+        </script>
+    </div>
+</body>
+
+</html>
