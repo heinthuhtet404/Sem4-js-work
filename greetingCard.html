@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Greeting Card</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card-container {
+            background: #f4adad;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        input,
+        select,
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #cardDisplay {
+            margin-top: 20px;
+        }
+
+        #cardTitle {
+            color: #5b2cff;
+            font-size: 28px;
+        }
+
+        #cardMessage {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <h1>Create Your Greeting Card</h1>
+
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <select id="occasionSelect">
+            <option value="Birthday">Birthday</option>
+            <option value="Anniversary">Anniversary</option>
+            <option value="Graduation">Graduation</option>
+            <option value="Farewell">Farewell</option>
+            <option value="New Year">New Year</option>
+        </select>
+        <button onclick="createCard()">Generate Card</button>
+
+
+        <div id="cardDisplay">
+            <h2 id="cardTitle"></h2>
+            <p id="cardMessage"></p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function createCard() {
+            const name = document.getElementById("nameInput").value;
+            const occasion = document.getElementById("occasionSelect").value;
+
+            if (!name) {
+                alert("Please enter a name!");
+                return;
+            }
+
+            document.getElementById("cardTitle").textContent = `Hello, ${name}!`;
+            document.getElementById("cardMessage").textContent = `Wishing you a joyful ${occasion} `;
+        }
+
+    </script>
+</body>
+
+</html>
