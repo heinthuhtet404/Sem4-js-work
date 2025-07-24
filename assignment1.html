@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/doraemon-svgrepo-com.svg" />
+    <title>Assignment-1</title>
+    <style>
+        .img {
+            border: 2px solid red;
+            border-radius: 8px;
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="showImage()">Show Image</button>
+    <div id="resultOne"></div>
+
+    <button onclick="getInfo()">Get Image</button>
+    <div id="resultTwo"></div>
+    <script>
+        function showImage() {
+            var imgElement = document.createElement('img');
+            imgElement.src = 'Pathein.jpg';
+            imgElement.classList.add('img');
+            imgElement.id = 'myimage';
+            document.body.appendChild(imgElement);
+        }
+
+        function getInfo() {
+            var imgEle = document.getElementById("myimage");
+            var imageIn = document.getElementById("resultTwo");
+            alert(imgEle.getAttribute("src"));
+            alert(imgEle.getAttribute("id"));
+            alert(imgEle.getAttribute("class"));
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/doraemon-svgrepo-com.svg" />
+    <title>Assignment-2</title>
+    <style>
+        .img {
+            border: 2px solid red;
+            border-radius: 8px;
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="createelement()">Show Info</button>
+    <button onclick="getelement()">Get Info</button>
+    <div id="container"></div>
+    <script>
+        function createelement() {
+            var p = document.createElement("p");
+            p.className = "img";
+            p.id = "con";
+            p.textContent = "Ayeyarwady,the granary of Burma";
+            document.body.appendChild(p);
+        }
+
+        function getelement() {
+            var parg = document.getElementById("con");
+            alert(parg.getAttribute("id"));
+            alert(parg.getAttribute("class"));
+            alert(parg.innerHTML);
+        }
+    </script>
+
+</body>
+
+</html>

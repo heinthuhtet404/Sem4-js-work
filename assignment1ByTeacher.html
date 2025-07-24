@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=querySelector, initial-scale=1.0">
+    <title>assignment 1 by teacher</title>
+</head>
+<body>
+    <input type="button" value="Show image" onclick="createElement()">
+    <input type="button" value="Get image" onclick="getElement()">
+    <script type="text/javascript">
+        function createElement(element){
+            var img = document.createElement('img');
+            img.id = 'myimg';
+            img.src = 'hlahla.jpg';
+            img.className = 'img';
+            document.body.appendChild(img);
+
+        }
+
+        function getElement() {
+            var images = document.getElementById('myimg');
+            alert(images.getAttribute('id'));
+            alert(images.getAttribute('src'));
+            alert(images.getAttribute('class'));
+        }
+    </script>
+</body>
+</html>

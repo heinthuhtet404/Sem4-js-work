@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/doraemon-svgrepo-com.svg" />
+    <title>Assignment-3</title>
+    <style>
+        h1,
+        h2,
+        form {
+            text-align: center;
+        }
+
+        input {
+            height: 20px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>24 Hour Time Format Validation</h1>
+    <h2>Enter Time (HH:MM)</h2><br>
+    <form onsubmit="return validateTime()">
+        <input type="text" name="time" id="time" placeholder="eg. 12:34" /><br><br>
+        <button type="submit">Submit</button>
+        <p id="error" class="error"></p>
+    </form>
+
+    <script>
+        function validateTime() {
+            const input = document.getElementById("time").value;
+            const errmsg = document.getElementById("error");
+            const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/;
+
+            if (!timePattern.test(input)) {
+                errmsg.textContent = "Please enter a valid 24-hr format time (HH:MM)";
+                return false;
+            }
+
+            errmsg.textContent = "";
+            alert("Valid time: " + input);
+            return true;
+        }
+    </script>
+</body>
+
+</html>
