@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="calculator.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    
+    <div>
+        <label for="squareInput">Square this number:</label>
+        <input type="number" id="squareInput" value="4">
+        <button id="squareBtn">Calculate</button>
+    </div>
+    
+    <div>
+        <label for="halfInput">Half this number:</label>
+        <input type="number" id="halfInput">
+        <button id="halfBtn">Calculate</button>
+    </div>
+    
+    <div>
+        <label for="radiusInput">Calculate area of circle with radius:</label>
+        <input type="number" id="radiusInput">
+        <button id="areaBtn">Calculate</button>
+    </div>
+</body>
+</html>
