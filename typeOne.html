@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type one</title>
+</head>
+
+<body>
+    <form method="post" id="Form">
+        <label for="email">Email</label>
+        <input type="email" id="email"><br><br>
+        <label for="password">Password</label>
+        <input type="password" id="password"><br><br>
+        <label for="comfirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword"><br><br>
+        <label for="telephone">Phone</label>
+        <input type="tel" id="telephone"><br><br>
+        <button id="submit">Submit</button>
+    </form>
+    <p id="demo"></p>
+    <script>
+        document.getElementById("Form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var email = document.getElementById("email");
+            var password = document.getElementById("password");
+            var confirmPassword = document.getElementById("confirmPassword");
+            var telephone = document.getElementById("telephone");
+
+
+            //pattern
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%?&])[A-Za-z\d@#$%?&]{8,}$/;
+            var telephonePattern = /^\+95[0-9]{9,12}$/;
+
+            if (!emailPattern.test(email.value)) {
+                document.getElementById("demo").textContent = "Invalid Email";
+                return;
+            }
+            if (!passwordPattern.test(password.value)) {
+                document.getElementById("demo").textContent = "Invalid Password";
+                return;
+            }
+
+            if (!telephonePattern.test(telephone.value)) {
+                document.getElementById("demo").textContent = "Invalid Phone Number";
+                return;
+            }
+
+            if (password.value !== confirmPassword.value) {
+                document.getElementById("demo").textContent = "Passwords do not match";
+                return;
+            }
+            alert("Successfully")
+        });
+    </script>
+</body>
+
+</html>

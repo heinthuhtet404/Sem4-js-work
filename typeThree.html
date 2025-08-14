@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragment</title>
+</head>
+
+<body>
+    <button id="quiz">Quiz</button>
+    <div id="question"></div>
+
+    <script>
+        document.getElementById("quiz").addEventListener("click", function () {
+            var fragment = document.createDocumentFragment();
+
+            var title = document.createElement("h3");
+            title.textContent = "Quiz 1";
+            fragment.appendChild(title);
+
+            var label = document.createElement("p");
+            label.textContent = "What time is it?";
+            fragment.appendChild(label);
+
+            var input = document.createElement("input");
+            input.type = "text";
+            input.placeholder = "Enter your answer";
+            fragment.appendChild(input);
+            document.getElementById("question").appendChild(fragment);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnerHtml</title>
+</head>
+
+<body>
+    <button id="quiz">Quiz</button>
+    <div id="question"></div>
+    <script>
+        document.getElementById("quiz").addEventListener("click", function () {
+            var quizHtml = `<h3>Quiz</h3> <br>
+            <p>What is your name?</p><br>
+                <input type="text" placeholder="Enter name">
+                `;
+            document.getElementById("question").innerHTML = quizHtml;
+
+        })
+    </script>
+</body>
+
+</html>
