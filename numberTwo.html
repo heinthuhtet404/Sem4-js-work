@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Two</title>
+    <style>
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        #invalidMessage {
+            color: red;
+        }
+
+        #successMessage {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student Registration Form</h1>
+    <form action="" method="post" id="form">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName">
+
+        <label for="email">Email</label>
+        <input type="email" id="email">
+
+        <label for="telephone">Phone Number</label>
+        <input type="tel" id="telephone">
+
+        <label for="studentId">Student ID</label>
+        <input type="number" id="studentId">
+
+        <br><br><button type="submit" id="submit">Register</button><br>
+        <p id="invalidMessage"></p>
+        <p id="successMessage"></p>
+    </form>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const successMessage = document.getElementById("successMessage");
+            const invalidMessage = document.getElementById("invalidMessage");
+            const fullName = document.getElementById("fullName");
+            const email = document.getElementById("email");
+            const telephone = document.getElementById("telephone");
+            const studentId = document.getElementById("studentId");
+
+            const fullNamePattern = ;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const telephonePattern = /^\+95[0-9]{9,12}$/;
+            const studentIdPattern = ;
+
+            if (!fullNamePattern.test(fullName.value)) {
+                invalidMessage.textContent = "invalid full name";
+                successMessage.textContent = "";
+                return;
+            }
+            if (!emailPattern.test(email.value)) {
+                invalidMessage.textContent = "invalid email pattern";
+                successMessage.textContent = "";
+                return;
+            }
+            if (!telephonePattern.test(telephone.value)) {
+                invalidMessage.textContent = "invalid phone number";
+                successMessage.textContent = "";
+                return;
+            }
+            if (!studentIdPattern.test(studentId.value)) {
+                invalidMessage.textContent = "invalid student id";
+                successMessage.textContent = "";
+                return;
+            }
+            invalidMessage.textContent = "";
+            successMessage.textContent = "Registration successful"
+
+        })
+    </script>
+</body>
+
+</html>

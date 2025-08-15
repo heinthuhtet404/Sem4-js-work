@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>type three</title>
+</head>
+<body>
+    <button id="practiceQuiz">Practice Quiz</button>
+    <div id="main"></div>
+    <script>
+        document.getElementById("practiceQuiz").addEventListener("click", function (event){
+            event.preventDefault();
+            const fragment = document.createDocumentFragment();
+            
+            const title = document.createElement("h3");
+            title.textContent = "Quiz 1";
+            fragment.appendChild(title);
+
+            const question = document.createElement("p");
+            question.textContent = "What time it is?";
+            fragment.appendChild(question);
+
+            const input = document.createElement("input");
+            input.type = "text";
+            input.placeholder = "12:48";
+            fragment.appendChild(input);
+
+            const button = document.createElement("button");
+            button.type = "submit";
+            button.textContent = "submit";
+            fragment.appendChild(button);
+
+            document.getElementById("main").appendChild(fragment);
+
+        })
+    </script>
+</body>
+</html>
