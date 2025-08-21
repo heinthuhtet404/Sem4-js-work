@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Path Example(Clock)</title>
+</head>
+<body>
+    <h1 style="font-family: 'Courier New', Courier, monospace;">Canvas Path Example</h1>
+    <canvas id="drawing" width="200" height="200" style="margin: 100px;"></canvas>
+    <script type="text/javascript">
+        window.onload = function(){
+            var drawing = document.getElementById("drawing");
+            if(drawing.getContext){
+                var context = drawing.getContext("2d");
+                //start the path
+                context.beginPath();
+
+                //draw outer circle
+                context.arc(100,100,99,0,2* 3.14,false);
+
+                //draw inner circle
+                context.moveTo(194,100);
+                context.arc(100,100,94,0,2* 3.14,false);
+                // //draw minute hand
+                context.moveTo(100,100);
+                context.lineTo(100,20);
+                // //draw hour hand
+                context.moveTo(100,100);
+                context.lineTo(100,150);
+                context.stroke();
+            }
+            if(context.strokeText){
+                context.font = "bold 14px Arial";
+                context.textAlign = "center";
+                context.textBaseline = "middle";
+                context.fillText("12",100,20);
+                context.fillText("11",60,35);
+                context.fillText("10",35,65);
+                context.fillText("9",20,100);
+                context.fillText("3",180,100);
+                context.fillText("6",100,180);
+            }else {
+                alert("your browser doesn't support the canvas text API");
+            }
+        }
+    </script>
+</body>
+</html>
