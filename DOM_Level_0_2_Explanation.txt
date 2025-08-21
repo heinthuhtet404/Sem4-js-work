@@ -1,0 +1,89 @@
+
+DOM Level 0 vs DOM Level 2
+
+DOM Level 0 (Inline / Traditional Event Handling)
+------------------------------------------------
+- Oldest way to handle events.
+- Only one event handler per event type (new one overrides old).
+- Two common forms:
+  1. HTML inline event handler (inside HTML tags)
+  2. JavaScript property assignment (e.g., element.onclick = ...)
+
+Example: DOM Level 0
+--------------------
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Level 0 Example</title>
+</head>
+<body>
+  <!-- Inline Event Handling -->
+  <button onclick="alert('Hello from DOM Level 0 (inline)!')">Click Me (Inline)</button>
+
+  <!-- JavaScript Property Event Handling -->
+  <button id="btn0">Click Me (Property)</button>
+
+  <script>
+    document.getElementById("btn0").onclick = function () {
+      alert("Hello from DOM Level 0 (property)!");
+    };
+
+    // Overwriting previous handler
+    document.getElementById("btn0").onclick = function () {
+      alert("This overwrote the previous handler!");
+    };
+  </script>
+</body>
+</html>
+
+DOM Level 2 (Modern Event Handling)
+-----------------------------------
+- Introduced with addEventListener().
+- Allows multiple handlers for the same event.
+- Supports event capturing and bubbling phases.
+- Recommended for modern use.
+
+Example: DOM Level 2
+--------------------
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Level 2 Example</title>
+</head>
+<body>
+  <button id="btn2">Click Me (addEventListener)</button>
+
+  <script>
+    const btn = document.getElementById("btn2");
+
+    // Multiple handlers possible
+    btn.addEventListener("click", function () {
+      alert("First handler from DOM Level 2!");
+    });
+
+    btn.addEventListener("click", function () {
+      alert("Second handler from DOM Level 2!");
+    });
+
+    // Example with capturing phase
+    document.body.addEventListener("click", function () {
+      console.log("Body clicked (capturing)");
+    }, true);
+
+    // Example with bubbling phase
+    document.body.addEventListener("click", function () {
+      console.log("Body clicked (bubbling)");
+    });
+  </script>
+</body>
+</html>
+
+Quick Comparison Table
+----------------------
+Feature | DOM Level 0 | DOM Level 2
+--------|-------------|-------------
+Syntax  | element.onclick = function | element.addEventListener("event", function)
+Multiple Handlers | ❌ Not possible | ✅ Possible
+Inline HTML support | ✅ Yes | ❌ No
+Event Phases (capture/bubble) | ❌ Not supported | ✅ Supported
+Recommended today | ❌ Old-fashioned | ✅ Yes

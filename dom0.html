@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Level 0 Example</title>
+</head>
+<body>
+  <button id="btn1">Click Me (DOM 0)</button>
+
+  <script>
+    // DOM Level 0 event handling
+    const btn1 = document.getElementById("btn1");
+
+    // Assign directly to onclick property
+    btn1.onclick = function () {
+      alert("Button clicked using DOM Level 0!");
+    };
+
+    // ❌ If we assign again, it overwrites the previous one
+    btn1.onclick = function () {
+      alert("This overwrote the previous handler.");
+    };
+  </script>
+</body>
+</html>

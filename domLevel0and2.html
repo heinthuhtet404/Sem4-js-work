@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Level 0 vs Level 2</title>
+</head>
+<body>
+  <h2>DOM Event Handling Examples</h2>
+  
+  <button id="btn0">Click Me (DOM Level 0)</button>
+  <button id="btn2">Click Me (DOM Level 2)</button>
+
+  <p id="output"></p>
+
+  <script>
+    // ---------------------------
+    // DOM Level 0 Event Handling
+    // ---------------------------
+    // Directly assigning a function to the element's event property
+    const btn0 = document.getElementById("btn0");
+    const output = document.getElementById("output");
+
+    btn0.onclick = function () {
+      output.innerHTML += "Clicked with DOM Level 0 handler<br>";
+    };
+
+    // NOTE: Only ONE handler is allowed this way.
+    // If we reassign, the previous one is overwritten.
+    btn0.onclick = function () {
+      output.innerHTML += "This replaced the first Level 0 handler<br>";
+    };
+
+    // ---------------------------
+    // DOM Level 2 Event Handling
+    // ---------------------------
+    // Using addEventListener() → multiple handlers are possible
+    const btn2 = document.getElementById("btn2");
+
+    function handler1() {
+      output.innerHTML += "Handler 1 (Level 2) executed<br>";
+    }
+
+    function handler2() {
+      output.innerHTML += "Handler 2 (Level 2) executed<br>";
+    }
+
+    // Attach multiple handlers
+    btn2.addEventListener("click", handler1);
+    btn2.addEventListener("click", handler2);
+
+    // We can also remove an event handler if needed:
+    // btn2.removeEventListener("click", handler2);
+  </script>
+</body>
+</html>

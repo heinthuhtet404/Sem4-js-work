@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Level 2 Example</title>
+</head>
+<body>
+  <button id="btn2">Click Me (DOM 2)</button>
+
+  <script>
+    const btn2 = document.getElementById("btn2");
+
+    // DOM Level 2 event handling
+    btn2.addEventListener("click", function () {
+      alert("First handler with DOM Level 2");
+    });
+
+    // ✅ Can add multiple handlers
+    btn2.addEventListener("click", function () {
+      alert("Second handler also works!");
+    });
+
+    // ✅ Can remove a specific handler
+    function handlerToRemove() {
+      alert("This will be removed!");
+    }
+
+    btn2.addEventListener("click", handlerToRemove);
+
+    // Remove it after 3 seconds
+    setTimeout(() => {
+      btn2.removeEventListener("click", handlerToRemove);
+      console.log("Handler removed");
+    }, 3000);
+  </script>
+</body>
+</html>
